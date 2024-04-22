@@ -111,3 +111,4 @@ window.title(" Taking readings ")
 
 
 window.mainloop()
+ print ('now')
