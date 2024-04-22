@@ -1,0 +1,113 @@
+from tkinter import Tk, Label, Button
+from tkinter import ttk
+import tkinter as tk
+
+
+class SENSOR:
+    def __init__(self, name, type):
+        self.name = name
+        self.type = type
+
+
+class ZOND(SENSOR):
+    def __init__(self, name, type):
+        super().__init__(name, type)
+
+    def func(self):
+        print('Indicators: ' + str(self.name) + str(self.type))
+
+
+Factory_1 = ZOND('\nSensor:', '\nZOND ')
+Factory_1.func()
+
+
+class INDICATORS:
+    def __init__(self, temperature, pressure, turbidity, nitrates, pH, TDS, conductivity):
+        self.temperature = temperature
+        self.pressure = pressure
+        self.turbidity = turbidity
+        self.nitrates = nitrates
+        self.pH = pH
+        self.TDS = TDS
+        self.conductivity = conductivity
+
+
+class INDICATOR1(INDICATORS):
+    def __init__(self, temperature, pressure, turbidity, nitrates, pH, TDS, conductivity):
+        super().__init__(temperature, pressure, turbidity, nitrates, pH, TDS, conductivity)
+
+    def func(self):
+        print('Indicator1:' + str(self.temperature) + str(self.pressure) + str(self.turbidity)
+              + str(self.nitrates) + str(self.pH) + str(self.TDS) + str(self.conductivity))
+
+
+Factory_4 = INDICATOR1('\ntemperature: 9°C ', '\npressure: 150 Па', '\nturbidity: 250',
+                       '\nnitrates: 1200', '\npH: 7', '\nTDS: 18', '\nconductivity: 150 ')
+Factory_4.func()
+
+
+window = Tk()
+window.geometry('550x100')
+window.configure(bg='light green')
+window.title("Exhaust gase monitoring")
+
+
+class SENSORMONITORING:
+    def Button_1(self):
+        tab_control = ttk.Notebook(window)
+        tab1 = ttk.Frame(tab_control)
+        tab2 = ttk.Frame(tab_control)
+
+        tab_control.add(tab1, text='ZOND')
+
+        lbl1 = Label(tab1, text='Temperature')
+        lbl1.grid(column=0, row=0)
+        lbl1 = Label(tab1, text='9°C')
+        lbl1.grid(column=0, row=1)
+
+        lbl1 = Label(tab1, text='Pressure')
+        lbl1.grid(column=1, row=0)
+        lbl1 = Label(tab1, text='150 Па')
+        lbl1.grid(column=1, row=1)
+
+        lbl1 = Label(tab1, text='Turbidity')
+        lbl1.grid(column=2, row=0)
+        lbl1 = Label(tab1, text='250')
+        lbl1.grid(column=2, row=1)
+
+        lbl1 = Label(tab1, text='Nitrates')
+        lbl1.grid(column=3, row=0)
+        lbl1 = Label(tab1, text='1200')
+        lbl1.grid(column=3, row=1)
+
+        lbl1 = Label(tab1, text='pH')
+        lbl1.grid(column=4, row=0)
+        lbl1 = Label(tab1, text='7')
+        lbl1.grid(column=4, row=1)
+
+        lbl1 = Label(tab1, text='TDS')
+        lbl1.grid(column=5, row=0)
+        lbl1 = Label(tab1, text='18')
+        lbl1.grid(column=5, row=1)
+
+        lbl1 = Label(tab1, text='Conductivity')
+        lbl1.grid(column=6, row=0)
+        lbl1 = Label(tab1, text='150')
+        lbl1.grid(column=6, row=1)
+
+        tab_control.pack(expand=1, fill='both')
+
+    but1 = Button(window)
+    but1 = Button(bg='light blue')
+    but1["text"] = "INDICATORS"
+    but1.pack()
+    but1.bind("<Button-1>", Button_1)
+
+
+window = tk.Tk()
+window.geometry('650x180')
+window.configure(bg='yellow')
+window.title(" Taking readings ")
+
+
+window.mainloop()
