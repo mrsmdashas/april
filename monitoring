@@ -21,7 +21,7 @@ Factory_1 = ZOND('\nSensor:', '\nZOND ')
 Factory_1.func()
 
 
-class INDICATORS:
+class SENSORINDICATORS:
     def __init__(self, temperature, pressure, turbidity, nitrates, pH, TDS, conductivity):
         self.temperature = temperature
         self.pressure = pressure
@@ -32,7 +32,7 @@ class INDICATORS:
         self.conductivity = conductivity
 
 
-class INDICATOR1(INDICATORS):
+class INDICATOR1(SENSORINDICATORS):
     def __init__(self, temperature, pressure, turbidity, nitrates, pH, TDS, conductivity):
         super().__init__(temperature, pressure, turbidity, nitrates, pH, TDS, conductivity)
 
